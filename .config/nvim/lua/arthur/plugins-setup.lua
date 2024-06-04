@@ -103,33 +103,6 @@ return packer.startup(function(use)
             require("copilot_cmp").setup()
         end
     }
-    -- -- Text wrapping
-    -- use({
-    --     "andrewferrier/wrapping.nvim",
-    --     config = function()
-    --         require("wrapping").setup()
-    --     end,
-    -- })
-    -- Semi-working obsidian plugin
-    use {
-        "epwalsh/obsidian.nvim",
-        config = function()
-            require("obsidian").setup({
-                dir = "~/brain", -- replace this with the path to your vault
-                disable_frontmatter = true,
-                completion = {
-                  nvim_cmp = true, -- enable nvim-cmp
-                },
-            })
-            vim.keymap.set("n", "gf", function()
-              if require("obsidian").util.cursor_on_markdown_link() then
-                return "<cmd>ObsidianFollowLink<CR>"
-              else
-                return "gf"
-              end
-            end, { noremap = false, expr = true })
-        end
-    }
 
     if packer_bootstrap then
 		require("packer").sync()
