@@ -103,11 +103,8 @@ source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias zshconfig="nvim ~/.zshrc"
+alias config="nvim ~/dotfiles"
 alias vim="nvim"
-alias lzg="lazygit"
-alias lzd="lazydocker"
-alias nvimconfig="nvim ~/.config/nvim"
 
 alias d='docker'
 alias k='kubectl'
