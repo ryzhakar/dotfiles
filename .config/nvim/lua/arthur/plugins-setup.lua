@@ -31,7 +31,8 @@ end
 return packer.startup(function(use)
 	-- packer can manage itself
 	use("wbthomason/packer.nvim")
-    use("folke/tokyonight.nvim")
+    use {"catppuccin/nvim", as = "catppuccin"}
+    -- use("folke/tokyonight.nvim")
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigatn
 	use("szw/vim-maximizer") -- maximizes and restores current window
     
