@@ -48,10 +48,19 @@ lspconfig["dockerls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
-
 lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = "basic",
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true,
+                diagnosticMode = "workspace",
+            },
+        },
+    },
 })
 lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
