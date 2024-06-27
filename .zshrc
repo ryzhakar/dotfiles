@@ -2,6 +2,7 @@ ZSH_THEME="josh"
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.docker/bin:$PATH
 
 # homebrew
 export PATH=/opt/homebrew/bin:$PATH
