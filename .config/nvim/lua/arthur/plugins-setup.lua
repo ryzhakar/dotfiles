@@ -88,22 +88,22 @@ return packer.startup(function(use)
 
     -- git integration
     use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-    use {
-        "zbirenbaum/copilot.lua",
-        config = function()
-            require("copilot").setup({
-                suggestion = { enabled = false },
-                panel = { enabled = false },
-            })
-        end
-    }
-    use {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
-        config = function()
-            require("copilot_cmp").setup()
-        end
-    }
+    -- use {
+    --     "zbirenbaum/copilot.lua",
+    --     config = function()
+    --         require("copilot").setup({
+    --             suggestion = { enabled = false },
+    --             panel = { enabled = false },
+    --         })
+    --     end
+    -- }
+    -- use {
+    --     "zbirenbaum/copilot-cmp",
+    --     after = { "copilot.lua" },
+    --     config = function()
+    --         require("copilot_cmp").setup()
+    --     end
+    -- }
 
     if packer_bootstrap then
 		require("packer").sync()
