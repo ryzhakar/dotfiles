@@ -1,7 +1,0 @@
-default_toolchain = "nightly-aarch64-apple-darwin"
-profile = "default"
-version = "12"
-
-[overrides]
-"/Users/ryzhakar/projects/monobank-sync-rust" = "stable-aarch64-apple-darwin"
-"/Users/ryzhakar/projects/monobudget-leptos" = "nightly-aarch64-apple-darwin"
