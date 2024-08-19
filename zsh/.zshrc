@@ -26,6 +26,7 @@ alias vim="nvim"
 alias d='docker'
 alias k='kubectl'
 alias r='runme run'
+alias mm='micromamba'
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'mamba init' !!
