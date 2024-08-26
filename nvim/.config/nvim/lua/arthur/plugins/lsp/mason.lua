@@ -11,7 +11,13 @@ if not mason_lspconfig_status then
 end
 
 -- enable mason
-mason.setup()
+mason.setup({
+    ensure_installed = {
+        "bacon",
+        "bacon-ls",
+    },
+	automatic_installation = true, -- not the same as ensure_installed
+})
 
 mason_lspconfig.setup({
 	-- list of servers for mason to install

@@ -62,12 +62,27 @@ lspconfig["pyright"].setup({
         },
     },
 })
+lspconfig["bacon_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+    autostart=true,
+    settings = {
+        -- locationsFile = ".locations",
+        -- waitTimeSeconds = 5
+    },
+})
 lspconfig["rust_analyzer"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
     settings = {
         ["rust-analyzer"] = {
           -- Other Settings ...
+          checkOnSave = {
+            enable = false
+          },
+          diagnostics = {
+            enable = false
+          },
           procMacro = {
             ignored = {
                 leptos_macro = {
