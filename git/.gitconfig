@@ -1,3 +1,7 @@
 [user]
 	name = Arthur Ryzhak
 	email = ryzhakar@gmail.com
+[includeIf "gitdir:~/competera/"]
+    path = .gitconfig-work
+[includeIf "gitdir:~/pp/"]
+    path = .gitconfig-personal
