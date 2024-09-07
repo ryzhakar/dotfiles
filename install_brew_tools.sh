@@ -5,3 +5,4 @@ brew install --force\
 	fzf\
 	xz pyenv\
 	font-mononoki font-mononoki-nerd-font\
+        pyright\
