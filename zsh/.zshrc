@@ -20,6 +20,10 @@ alias config="nvim ~/dotfiles"
 alias vim="nvim"
 alias vi="nvim"
 alias v="nvim"
+alias tree="erd --suppress-size"
+alias du="dust"
+alias cd="z"
+alias stow="nstow"
 
 alias d='docker'
 alias k='kubectl'
@@ -96,3 +100,4 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 . <(zr zsh-users/zsh-syntax-highlighting zsh-users/zsh-completions)
 # Activate the prompt
 custom_prompt_rustpy
+eval "$(zoxide init zsh)"
