@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-cargo install\
+cargo install --locked\
     new-stow\
     du-dust\
     skim\
     erdtree\
     zr\
     yazi-fm yazi-cli\
-    zoxide
+    zoxide\
+    gitui\
+    bacon\
