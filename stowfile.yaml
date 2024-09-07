@@ -2,9 +2,9 @@
 vars:
 
 stow:
-  - src: alacritty/.config/alacritty
-    links:
-      - "${XDG_CONFIG_HOME}/alacritty"
+  # - src: alacritty/.config/alacritty
+  #   links:
+  #     - "${XDG_CONFIG_HOME}/alacritty"
 
   - src: tmux/.config/tmux/tmux.conf
     links:
@@ -26,3 +26,10 @@ stow:
       links:
         - "${XDG_CONFIG_HOME}/nvim/init.lua"
 
+  - "kitty/.config/kitty":
+    - src: kitty.conf
+      links:
+        - "${XDG_CONFIG_HOME}/kitty/kitty.conf"
+    - src: current-theme.conf
+      links:
+        - "${XDG_CONFIG_HOME}/kitty/current-theme.conf"
