@@ -1,3 +1,6 @@
+# Set default unix paths
+export XDG_CONFIG_HOME=$HOME/.config
+
 # Binary Paths
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
