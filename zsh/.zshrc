@@ -104,3 +104,4 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Activate the prompt
 custom_prompt_rustpy
 eval "$(zoxide init zsh)"
+source <(fzf --zsh)
