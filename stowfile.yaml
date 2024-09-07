@@ -1,0 +1,28 @@
+---
+vars:
+
+stow:
+  - src: alacritty/.config/alacritty
+    links:
+      - "${XDG_CONFIG_HOME}/alacritty"
+
+  - src: tmux/.config/tmux/tmux.conf
+    links:
+      - "${XDG_CONFIG_HOME}/tmux/tmux.conf"
+
+  - src: zsh/.zshrc
+    links:
+      - "${HOME}/.zshrc"
+
+  - src: git/.gitconfig
+    links:
+      - "${HOME}/.gitconfig"
+
+  - "nvim/.config/nvim":
+    - src: lua
+      links:
+        - "${XDG_CONFIG_HOME}/nvim/lua"
+    - src: init.lua
+      links:
+        - "${XDG_CONFIG_HOME}/nvim/init.lua"
+
