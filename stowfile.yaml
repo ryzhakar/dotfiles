@@ -10,9 +10,9 @@ stow:
     links:
       - "${XDG_CONFIG_HOME}/tmux/tmux.conf"
 
-  - src: gitui/.config/gitui/theme.ron
+  - src: gitui/.config/gitui
     links:
-      - "${XDG_CONFIG_HOME}/gitui/theme.ron"
+      - "${XDG_CONFIG_HOME}/gitui"
 
   - src: zsh/.zshrc
     links:
