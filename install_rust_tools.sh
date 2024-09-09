@@ -7,5 +7,4 @@ cargo install --locked\
     zr\
     yazi-fm yazi-cli\
     zoxide\
-    gitui\
     bacon\

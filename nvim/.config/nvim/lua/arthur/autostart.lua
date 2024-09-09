@@ -4,8 +4,8 @@ vim.cmd [[
 
 function OpenLazyTools()
   vim.cmd [[tabnew]]
-  vim.cmd [[terminal gitui]]
-  vim.cmd [[file GitUI]]
+  -- vim.cmd [[terminal lazygit]]
+  -- vim.cmd [[file lazygit]]
   -- vim.cmd [[tabnew]]
   -- vim.cmd [[terminal lazydocker]]
   -- vim.cmd [[file LazyDocker]]
