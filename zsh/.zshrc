@@ -5,8 +5,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.docker/bin:$PATH
-export PATH=/opt/homebrew/bin:$PATH
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH=/opt/homebrew/bin:$PATH export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
 # Golang environment variables
@@ -119,3 +118,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 custom_prompt_rustpy
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ryzhakar/.google/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ryzhakar/.google/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ryzhakar/.google/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ryzhakar/.google/google-cloud-sdk/completion.zsh.inc'; fi
