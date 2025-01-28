@@ -28,6 +28,24 @@ alias d='docker'
 alias k='kubectl'
 alias mm='micromamba'
 
+function compress() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: compress <file_or_directory>"
+    return 1
+  fi
+
+  tar --create --file - "$1" | xz -9 --extreme --verbose >"$1.tar.xz"
+}
+
+function decompress() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: decompress <file.tar.xz>"
+    return 1
+  fi
+
+  xzcat "$1" | tar -xvf -
+}
+
 custom_prompt_rustpy() {
     setopt PROMPT_SUBST
 
