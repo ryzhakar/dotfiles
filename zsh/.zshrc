@@ -5,13 +5,12 @@ export XDG_CONFIG_HOME=$HOME/.config
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.docker/bin:$PATH
-export PATH=/opt/homebrew/bin:$PATH export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
-# Golang environment variables
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/.go
-export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH:
+
 
 # Aliases
 alias config="nvim ~/dotfiles"
@@ -91,9 +90,6 @@ custom_prompt_rustpy() {
     # Set the right prompt (for showing time)
     RPROMPT='%F{245}%*%f'  # Overlay0
 }
-
-# Activate the prompt
-custom_prompt_rustpy
 
 # History dedup
 HISTSIZE=5000
