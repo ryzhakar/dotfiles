@@ -70,8 +70,9 @@ lspconfig["bacon_ls"].setup({
         updateOnSave = true,
         updateOnSaveWaitMillis = 1000,
         runBaconInBackground = true,
+        runBaconInBackgroundCommandArguments = "--headless -j bacon-ls",
         synchronizeAllOpenFilesWaitMillis = 2000,
-        locationsFile = ".bacon-locations"  -- Match the path in bacon.toml
+        locationsFile = ".bacon-locations"
     },
 })
 lspconfig["rust_analyzer"].setup({
