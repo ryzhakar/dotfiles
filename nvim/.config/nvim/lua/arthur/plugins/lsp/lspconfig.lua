@@ -63,12 +63,15 @@ lspconfig["pyright"].setup({
     },
 })
 lspconfig["bacon_ls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-    autostart=true,
-    settings = {
-        -- locationsFile = ".locations",
-        -- waitTimeSeconds = 5
+    capabilities = capabilities,
+    on_attach = on_attach,
+    autostart = true,
+    init_options = {
+        updateOnSave = true,
+        updateOnSaveWaitMillis = 1000,
+        runBaconInBackground = true,
+        synchronizeAllOpenFilesWaitMillis = 2000,
+        locationsFile = ".bacon-locations"  -- Match the path in bacon.toml
     },
 })
 lspconfig["rust_analyzer"].setup({
