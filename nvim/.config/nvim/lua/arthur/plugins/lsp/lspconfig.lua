@@ -30,7 +30,6 @@ local function setup_diagnostic_signs()
     end
 end
 
--- Format virtual text based on language
 local function format_virtual_text(diagnostic)
     local message = diagnostic.message
     local source = diagnostic.source or ""
@@ -40,12 +39,13 @@ local function format_virtual_text(diagnostic)
     if source:match("pyright") then
         -- For Python, show exception name or error type
         return code ~= "" and code or (message:match("^%w+Error:") or message:match("^%w+Warning:") or "")
-    elseif source:match("rust") then
-        -- For Rust, show error code
-        return code ~= "" and code or message:match("E%d+") or ""
+    elseif source:match("rust") or source:match("bacon") or source:match("bacon%-ls") then
+        -- Include "bacon" and "bacon-ls" as possible sources for Rust diagnostics
+        return code ~= "" and code or message:match("E%d+") or message:sub(1, 30)
     else
-        -- For other languages, keep it minimal
-        return code ~= "" and code or ""
+        -- For other languages, if we have a code use it, otherwise show some of the message
+        -- This ensures we at least see something for diagnostics
+        return code ~= "" and code or message:sub(1, 30)
     end
 end
 
