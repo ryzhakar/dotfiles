@@ -12,12 +12,14 @@ end
 
 local keymap = vim.keymap -- for conciseness
 
--- Better diagnostic symbols for Mononoki Nerd Font
-local diagnostic_signs = { 
-    Error = " ", -- More visible error icon
-    Warn = " ",  -- Warning triangle
-    Hint = " ",  -- Lightbulb for hints
-    Info = " "   -- Information icon
+-- Better diagnostic symbols for Mononoki Nerd Font Mono
+-- Glyphs sourced using the Nerd Fonts Cheat Sheet (confirmed via web search)
+-- Cheat Sheet URL: https://www.nerdfonts.com/cheat-sheet
+local diagnostic_signs = {
+    Error = "",  -- nf-fa-times_circle_o (Commonly used for errors)
+    Warn  = "",  -- nf-fa-warning / nf-fa-exclamation_triangle (Standard warning symbol)
+    Hint  = "",  -- nf-oct-light_bulb (Common hint/idea symbol)
+    Info  = ""   -- nf-fa-info_circle (Standard information symbol)
 }
 
 -- Setup sign column icons
