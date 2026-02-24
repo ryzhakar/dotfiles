@@ -26,6 +26,8 @@ alias d='docker'
 alias k='kubectl'
 alias mm='micromamba'
 
+alias claude_competera='ANTHROPIC_VERTEX_PROJECT_ID="cmp-development" CLAUDE_CODE_USE_VERTEX=1 CLOUD_ML_REGION=global CLAUDE_CONFIG_DIR=~/.claude-competera claude'
+
 function compress() {
   if [[ -z "$1" ]]; then
     echo "Usage: compress <file_or_directory>"
