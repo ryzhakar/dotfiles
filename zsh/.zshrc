@@ -28,6 +28,37 @@ alias mm='micromamba'
 
 alias claude_competera='ANTHROPIC_VERTEX_PROJECT_ID="cmp-development" CLAUDE_CODE_USE_VERTEX=1 CLOUD_ML_REGION=global CLAUDE_CONFIG_DIR=~/.claude-competera claude'
 
+# Claude Code viz tools
+function ghostship() {
+  node ~/pp/agent-profiler/node_modules/@ghostship/agent-profiler/bin/agent-profiler.js --no-open --port 5180
+}
+
+function s1lentblade() {
+  (cd ~/pp/s1lentblade && ./refresh.sh)
+}
+
+function s1lentblade-convert() {
+  if [[ -z "$1" || -z "$2" ]]; then
+    echo "Usage: s1lentblade-convert <input.jsonl> <output.html>"
+    return 1
+  fi
+  python3 ~/pp/s1lentblade/scripts/jsonl_to_html.py "$1" "$2"
+}
+
+function cctools() {
+  echo "ghostship          DAG analytics        localhost:5180"
+  echo "s1lentblade         full-scan HTML        ~/pp/s1lentblade/"
+  echo "s1lentblade-convert <in> <out> HTML       single session"
+  echo "cctrace             session trace UI      localhost:1421"
+  echo "ccsv                session viewer        localhost:3838"
+}
+
+function cctrace() {
+  CCTRACE_STATIC_DIR=~/pp/claude-code-trace/dist \
+  CCTRACE_HTTP_PORT=1421 \
+  "/Applications/Claude Code Trace.app/Contents/MacOS/claude-code-trace" --headless
+}
+
 function compress() {
   if [[ -z "$1" ]]; then
     echo "Usage: compress <file_or_directory>"
