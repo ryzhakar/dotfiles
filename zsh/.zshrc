@@ -26,7 +26,8 @@ alias d='docker'
 alias k='kubectl'
 alias mm='micromamba'
 
-alias claude_competera='ANTHROPIC_VERTEX_PROJECT_ID="cmp-development" CLAUDE_CODE_USE_VERTEX=1 CLOUD_ML_REGION=global CLAUDE_CONFIG_DIR=~/.claude-competera claude'
+alias claude_competera='CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 CLAUDE_CONFIG_DIR=~/.claude-competera claude'
+alias claude='CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1 claude'
 
 # Claude Code viz tools
 function ghostship() {

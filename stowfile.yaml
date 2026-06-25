@@ -25,6 +25,9 @@ stow:
     - src: init.lua
       links:
         - "${XDG_CONFIG_HOME}/nvim/init.lua"
+    - src: after
+      links:
+        - "${XDG_CONFIG_HOME}/nvim/after"
 
   - "kitty/.config/kitty":
     - src: kitty.conf
