@@ -93,15 +93,22 @@ function tuck() {
   fi
   local src="${args[1]:A}"
   local name="${args[2]:-${src:t}}"
+  # Previews keep the full per-object listing (that IS the report);
+  # real runs go quiet and end with a stats summary instead.
+  local -a quiet progress
+  if (( ! ${#dry_run} )); then
+    quiet=(--log error --stat)
+    progress=(--show-progress)
+  fi
   (
     set -a; source "$env_file"; set +a
     if [[ -d "$src" ]]; then
-      s5cmd "${dry_run[@]}" sync "${delete[@]}" "$src/" "$BACKUP_S3_PREFIX/$name/"
+      s5cmd "${dry_run[@]}" "${quiet[@]}" sync "${delete[@]}" "$src/" "$BACKUP_S3_PREFIX/$name/"
     else
       if (( ${#delete} )); then
         echo "--tight only applies to directory sync; ignoring for single file"
       fi
-      s5cmd "${dry_run[@]}" cp "$src" "$BACKUP_S3_PREFIX/$name"
+      s5cmd "${dry_run[@]}" "${quiet[@]}" cp "${progress[@]}" "$src" "$BACKUP_S3_PREFIX/$name"
     fi
   ) && if (( ${#dry_run} )); then
     echo "(preview — nothing uploaded; add --in to tuck it in)"
