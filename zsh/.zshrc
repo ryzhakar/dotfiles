@@ -69,6 +69,45 @@ function compress() {
   tar --create --file - "$1" | xz -9 --extreme --verbose >"$1.tar.xz"
 }
 
+function tuck() {
+  local -a dry_run=(--dry-run) delete args
+  local arg
+  for arg in "$@"; do
+    case "$arg" in
+      --in|--execute|--no-dry-run) dry_run=() ;;
+      --dry-run)                   dry_run=(--dry-run) ;;
+      --tight|--delete)            delete=(--delete) ;;
+      *) args+=("$arg") ;;
+    esac
+  done
+  if [[ -z "${args[1]}" ]]; then
+    echo "Usage: tuck [--in] [--tight] <file_or_directory> [remote-name]"
+    echo "Preview (dry run) by default. --in executes; --tight mirrors (deletes remote strays)."
+    echo "Conventional synonyms: --execute/--no-dry-run = --in, --delete = --tight, --dry-run = default."
+    return 1
+  fi
+  local env_file="$HOME/.config/backup/backblaze.env"
+  if [[ ! -f "$env_file" ]]; then
+    echo "Missing $env_file"
+    return 1
+  fi
+  local src="${args[1]:A}"
+  local name="${args[2]:-${src:t}}"
+  (
+    set -a; source "$env_file"; set +a
+    if [[ -d "$src" ]]; then
+      s5cmd "${dry_run[@]}" sync "${delete[@]}" "$src/" "$BACKUP_S3_PREFIX/$name/"
+    else
+      if (( ${#delete} )); then
+        echo "--tight only applies to directory sync; ignoring for single file"
+      fi
+      s5cmd "${dry_run[@]}" cp "$src" "$BACKUP_S3_PREFIX/$name"
+    fi
+  ) && if (( ${#dry_run} )); then
+    echo "(preview — nothing uploaded; add --in to tuck it in)"
+  fi
+}
+
 function decompress() {
   if [[ -z "$1" ]]; then
     echo "Usage: decompress <file.tar.xz>"
